@@ -53,6 +53,7 @@
             display: flex;
             align-items: center;
             padding: 0 15px;
+            z-index: 10;
         }
 
         .buttons {
@@ -76,8 +77,29 @@
             font-weight: bold;
         }
 
+        /* Gaya Khusus untuk Teks Berjalan */
+        .ticker-wrap {
+            width: 100%;
+            background-color: rgba(239, 68, 68, 0.1);
+            border-bottom: 1px solid rgba(239, 68, 68, 0.3);
+            overflow: hidden;
+            margin-top: 15px;
+            padding: 6px 0;
+        }
+
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            padding-right: 100%;
+            animation: marquee 15s linear infinite;
+            color: var(--accent-red);
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--accent-glow);
+        }
+
         .profile-wrapper {
-            margin-top: 25px;
+            margin-top: 20px;
             text-align: center;
             position: relative;
         }
@@ -155,6 +177,12 @@
             text-align: center;
         }
 
+        /* Animasi Pergerakan Teks */
+        @keyframes marquee {
+            0% { transform: translate3d(100%, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
         @keyframes pulse {
             0% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.4); opacity: 0.8; }
             100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.8); opacity: 1; }
@@ -173,8 +201,16 @@
         <div class="title-bar">bash - bug_bounty@takeover: ~/rsud-poc</div>
     </div>
 
+    <!-- ELEMEN TEKS BERJALAN NEON -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            [ALERT] ALERT!! SYSTEM SECURITY BREACH DETECTED // BROKEN LINK HIJACKING DEMONSTRATED ON DOMAIN RSUDKOTABANDUNG.WEB.ID // INTRUSION LEVEL: ETHICAL VULNERABILITY DISCLOSURE ACTIVE...
+        </div>
+    </div>
+
     <div class="profile-wrapper">
-        <img src="https://ibb.co" alt="Bug Hunter Profile" class="profile-img">
+        <!-- Memanggil gambar tato wajah lokal yang sudah sukses diunggah -->
+        <img src="IMG-20261018-200634.png" alt="Bug Hunter Profile" class="profile-img">
         <br>
         <div class="status-badge">SYSTEM TAKEOVER ACTIVE</div>
         <h1>Domain Takeover Verified</h1>
@@ -184,7 +220,7 @@
     <div class="console-log">
         [+] Target Host : <span class="cyan-txt">bandung.go.id (PPID Asset Link)</span><br>
         [+] Exploit Type: <strong>Second-Order Broken Link Hijacking</strong><br>
-        [+] Hijacked URL: <span class="cyan-txt">http://rsudkotabandung.web.id/</span><br>
+        [+] Hijacked URL: <span class="cyan-txt">http://rsudkotabandung.web.id</span><br>
         [+] Status      : [ SUCCESSFUL TAKEOVER ]<br>
         [+] Payload     : Non-destructive / Static Proof Page
     </div>
@@ -199,5 +235,5 @@
 </div>
 
 </body>
-  </html>
-  
+    </html>
+        
