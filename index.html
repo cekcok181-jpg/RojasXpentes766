@@ -89,8 +89,7 @@
         .ticker {
             display: inline-block;
             white-space: nowrap;
-            padding-right: 100%;
-            animation: marquee 30s linear infinite; /* DURASI SEDANG 30 DETIK */
+            animation: marquee 25s linear infinite; /* Kecepatan pas & sedang */
             color: var(--accent-red);
             font-size: 0.85rem;
             font-weight: bold;
@@ -176,9 +175,10 @@
             text-align: center;
         }
 
+        /* PERBAIKAN ANIMASI: Mulai langsung dari posisi 0 agar langsung terbaca instant */
         @keyframes marquee {
-            0% { transform: translate3d(100%, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
         }
 
         @keyframes pulse {
@@ -196,12 +196,12 @@
             <div class="dot dot-y"></div>
             <div class="dot dot-g"></div>
         </div>
-        <div class="title-bar">bash - bug_bounty@takeover: ~/rsud-poc</div>
+        <div class="title-bar">bash - RojasXpentes76: ~/rsud-poc</div>
     </div>
 
-    <!-- ELEMEN TEKS BERJALAN INTERAKTIF -->
+    <!-- ELEMEN TEKS BERJALAN INSTAN TANPA JEDA -->
     <div class="ticker-wrap">
-        <div class="ticker" onmouseover="this.style.animationPlayState='paused'" onmouseout="this.style.animationPlayState='running'" ontouchstart="this.style.animationPlayState='paused'" ontouchend="this.style.animationPlayState='running'">
+        <div class="ticker">
             [ALERT] SYSTEM SECURITY BREACH DETECTED // BROKEN LINK HIJACKING DEMONSTRATED ON DOMAIN RSUDKOTABANDUNG.WEB.ID // INTRUSION LEVEL: ETHICAL VULNERABILITY DISCLOSURE ACTIVE...
         </div>
     </div>
