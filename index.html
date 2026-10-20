@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL // BUG BOUNTY PROOF OF CONCEPT</title>
+    <style>
+        :root {
+            --bg-color: #0a0f1d;
+            --card-bg: #111827;
+            --accent-red: #ef4444;
+            --accent-glow: rgba(239, 68, 68, 0.4);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --cyber-blue: #38bdf8;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background-image: linear-gradient(rgba(18, 24, 38, 0.5) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 255, 0, 0.03));
+            background-size: 100% 4px, 6px 100%;
+        }
+
+        .terminal-box {
+            background-color: var(--card-bg);
+            border: 2px solid var(--accent-red);
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 650px;
+            width: 100%;
+            box-shadow: 0 0 20px var(--accent-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background-color: #1f2937;
+            border-bottom: 1px solid #374151;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .dot-r { background-color: #ef4444; }
+        .dot-y { background-color: #f59e0b; }
+        .dot-g { background-color: #10b981; }
+
+        .title-bar {
+            margin-left: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: bold;
+        }
+
+        .profile-wrapper {
+            margin-top: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-red);
+            box-shadow: 0 0 15px var(--accent-glow);
+            transition: transform 0.3s ease;
+        }
+
+        .status-badge {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: var(--accent-red);
+            border: 1px solid var(--accent-red);
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+            letter-spacing: 2px;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin: 15px 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sub-h1 {
+            color: var(--cyber-blue);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .console-log {
+            background-color: #030712;
+            border: 1px solid #374151;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: left;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #34d399;
+        }
+
+        .console-log strong {
+            color: var(--accent-red);
+        }
+
+        .cyan-txt {
+            color: var(--cyber-blue);
+        }
+
+        p.notice-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-top: 25px;
+            text-align: justify;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.75rem;
+            color: #4b5563;
+            border-top: 1px solid #1f2937;
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.4); opacity: 0.8; }
+            100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.8); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="terminal-box">
+    <div class="terminal-header">
+        <div class="buttons">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+        </div>
+        <div class="title-bar">bash - bug_bounty@takeover: ~/rsud-poc</div>
+    </div>
+
+    <div class="profile-wrapper">
+        <img src="https://ibb.co" alt="Bug Hunter Profile" class="profile-img">
+        <br>
+        <div class="status-badge">SYSTEM TAKEOVER ACTIVE</div>
+        <h1>Domain Takeover Verified</h1>
+        <div class="sub-h1">Secured by Independent White-Hat Pentester</div>
+    </div>
+    
+    <div class="console-log">
+        [+] Target Host : <span class="cyan-txt">bandung.go.id (PPID Asset Link)</span><br>
+        [+] Exploit Type: <strong>Second-Order Broken Link Hijacking</strong><br>
+        [+] Hijacked URL: <span class="cyan-txt">http://rsudkotabandung.web.id/</span><br>
+        [+] Status      : [ SUCCESSFUL TAKEOVER ]<br>
+        [+] Payload     : Non-destructive / Static Proof Page
+    </div>
+
+    <p class="notice-desc">
+        Halaman ini dibuat sebagai pembuktian valid (Proof of Concept) atas kerentanan sistem di mana domain lama yang kedaluwarsa masih terikat pada dokumen platform resmi aktif. Aset domain saat ini berada di bawah kontrol yang aman demi mencegah eksploitasi berbahaya dari pihak eksternal (Responsible Disclosure).
+    </p>
+    
+    <div class="footer">
+        [ SYSTEM SECURED BY AUTHORIZED PENETRATION TESTER. ALL RIGHTS RESERVED ]
+    </div>
+</div>
+
+</body>
+  </html>
+  
