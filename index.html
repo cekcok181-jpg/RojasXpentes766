@@ -77,7 +77,6 @@
             font-weight: bold;
         }
 
-        /* Gaya Khusus untuk Teks Berjalan */
         .ticker-wrap {
             width: 100%;
             background-color: rgba(239, 68, 68, 0.1);
@@ -91,7 +90,7 @@
             display: inline-block;
             white-space: nowrap;
             padding-right: 100%;
-            animation: marquee 15s linear infinite;
+            animation: marquee 30s linear infinite; /* DURASI SEDANG 30 DETIK */
             color: var(--accent-red);
             font-size: 0.85rem;
             font-weight: bold;
@@ -177,7 +176,6 @@
             text-align: center;
         }
 
-        /* Animasi Pergerakan Teks */
         @keyframes marquee {
             0% { transform: translate3d(100%, 0, 0); }
             100% { transform: translate3d(-100%, 0, 0); }
@@ -201,15 +199,14 @@
         <div class="title-bar">bash - bug_bounty@takeover: ~/rsud-poc</div>
     </div>
 
-    <!-- ELEMEN TEKS BERJALAN NEON -->
+    <!-- ELEMEN TEKS BERJALAN INTERAKTIF -->
     <div class="ticker-wrap">
-        <div class="ticker">
-            [ALERT] ALERT!! SYSTEM SECURITY BREACH DETECTED // BROKEN LINK HIJACKING DEMONSTRATED ON DOMAIN RSUDKOTABANDUNG.WEB.ID // INTRUSION LEVEL: ETHICAL VULNERABILITY DISCLOSURE ACTIVE...
+        <div class="ticker" onmouseover="this.style.animationPlayState='paused'" onmouseout="this.style.animationPlayState='running'" ontouchstart="this.style.animationPlayState='paused'" ontouchend="this.style.animationPlayState='running'">
+            [ALERT] SYSTEM SECURITY BREACH DETECTED // BROKEN LINK HIJACKING DEMONSTRATED ON DOMAIN RSUDKOTABANDUNG.WEB.ID // INTRUSION LEVEL: ETHICAL VULNERABILITY DISCLOSURE ACTIVE...
         </div>
     </div>
 
     <div class="profile-wrapper">
-        <!-- Memanggil gambar tato wajah lokal yang sudah sukses diunggah -->
         <img src="IMG-20261018-200634.png" alt="Bug Hunter Profile" class="profile-img">
         <br>
         <div class="status-badge">SYSTEM TAKEOVER ACTIVE</div>
@@ -235,5 +232,4 @@
 </div>
 
 </body>
-    </html>
-        
+</html>
